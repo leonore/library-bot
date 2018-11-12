@@ -1,5 +1,7 @@
-import json
+# -*- coding: utf-8 -*-
 from __future__ import division
+import json
+from math import ceil
 
 file = open('new_data.json', 'r')
 
@@ -9,14 +11,29 @@ blocks = parsed_data["Groups"]
 dict = {}
 
 for element in blocks:
-    dict[element["Name"]]= [element["Available"],element["Total"]]
+    dict[element["Label"]] = [element["Available"], element["Total"]]
 
 available = parsed_data["Available"]
 total = parsed_data["Total"]
 
-print(available, total)
-tweet = str(available/total) + "% available\n"
+# Final tweet format
+# % Available
+# Level 1: Level 3: Level 4:
+# Level 5: Level 6: Level 7:
+# Level 8: Level 10: Reading Room:
 
-print(tweet)
-for level in sorted(dict.keys()):
-    tweet += level + ": " + str(dict.get(level)[0]) + "/" + str(dict.get(level)[1]) + "\n"
+ratio = int(ceil(available / total * 100))
+
+tweet = str(ratio) + "% available\n"
+
+sorted_names = ["Level 1", "Level 3", "Level 4",
+                "Level 5", "Level 6", "Level 7",
+                "Level 8", "Level 10", "Reading room"]
+
+for name in sorted_names:
+    av = dict.get(name)[0]
+    tot = dict.get(name)[1]
+    emoji = "✅" if av > (tot/2) else "❗"
+    tweet += name + ": " + str(av) + "/" + str(tot) + emoji + "\n"
+
+tweet = tweet.strip()
