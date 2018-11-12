@@ -33,7 +33,7 @@ sorted_names = ["Level 1", "Level 3", "Level 4",
 for name in sorted_names:
     av = dict.get(name)[0]
     tot = dict.get(name)[1]
-    emoji = "✅" if av > (tot/2) else "❗"
+    emoji = "✅" if av > (tot/3) else "❗"
     tweet += name + ": " + str(av) + "/" + str(tot) + emoji + "\n"
 
 tweet = tweet.strip()
