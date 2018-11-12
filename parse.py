@@ -1,5 +1,5 @@
 import json
-import datetime
+from __future__ import division
 
 file = open('new_data.json', 'r')
 
@@ -11,12 +11,12 @@ dict = {}
 for element in blocks:
     dict[element["Name"]]= [element["Available"],element["Total"]]
 
-available = str(parsed_data["Available"])
-total = str(parsed_data["Total"])
+available = parsed_data["Available"]
+total = parsed_data["Total"]
 
-now = datetime.datetime.now()
+print(available, total)
+tweet = str(available/total) + "% available\n"
 
-tweet = now.strftime("%d/%m/%y %H:%M") + " - " + available +"/"+total + " available\n"
-
+print(tweet)
 for level in sorted(dict.keys()):
     tweet += level + ": " + str(dict.get(level)[0]) + "/" + str(dict.get(level)[1]) + "\n"
