@@ -11,7 +11,7 @@ blocks = parsed_data["Groups"]
 dict = {}
 
 for element in blocks:
-    dict[element["Label"]] = [element["Available"], element["Total"]]
+    dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
 
 available = parsed_data["Available"]
 total = parsed_data["Total"]
@@ -37,3 +37,4 @@ for name in sorted_names:
     tweet += name + ": " + str(av) + "/" + str(tot) + emoji + "\n"
 
 tweet = tweet.strip()
+print(tweet)
