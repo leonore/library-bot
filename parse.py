@@ -13,7 +13,7 @@ dict = {}
 for element in blocks:
     dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
 
-available = parsed_data["Available"]
+available = parsed_data["Available"] + parsed_data["Offline"]
 total = parsed_data["Total"]
 
 # Final tweet format
