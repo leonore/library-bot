@@ -17,10 +17,16 @@ available = parsed_data["Available"] + parsed_data["Offline"]
 total = parsed_data["Total"]
 
 # Final tweet format
-# % Available
-# Level 1: Level 3: Level 4:
-# Level 5: Level 6: Level 7:
-# Level 8: Level 10: Reading Room:
+# % available
+# Level 1:
+# Level 3:
+# Level 4:
+# Level 5:
+# Level 6:
+# Level 7:
+# Level 8:
+# Level 10:
+# Reading Room:
 
 ratio = int(ceil(available / total * 100))
 
@@ -33,8 +39,14 @@ sorted_names = ["Level 1", "Level 3", "Level 4",
 for name in sorted_names:
     av = dict.get(name)[0]
     tot = dict.get(name)[1]
-    emoji = "✅" if av > (tot/3) else "❗"
-    tweet += name + ": " + str(av) + "/" + str(tot) + emoji + "\n"
+    if av > (tot/2): # 50% available
+        emoji = "✅"
+    elif av > (tot/4): # 25% available
+        emoji = "🔸"
+    else: # less than 25% available
+        emoji = "❗"
+    tweet += name + ": " + str(av) + "/" + str(tot)+ " " + emoji  + "\n"
+    #tweet += emoji + "  " + name + ": " + str(av) + "/" + str(tot) + "\n"
 
-tweet = tweet.strip()
+tweet = tweet.rstrip()
 print(tweet)
