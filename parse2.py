@@ -4,6 +4,8 @@ import json
 from math import ceil
 import datetime
 
+## LIBRARY IS SUPER BUSY ##
+
 file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
 
 parsed_data = json.load(file)

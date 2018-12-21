@@ -4,8 +4,10 @@ from math import ceil
 import datetime
 import json
 
-file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
-#file = open('new_data.json', 'r')
+## LIBRARY IS NORMALLY BUSY ##
+
+#file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
+file = open('new_data.json', 'r')
 
 parsed_data = json.load(file)
 blocks = parsed_data["Groups"]
@@ -15,28 +17,21 @@ dict = {}
 date = datetime.datetime.now()
 today = date.weekday()
 hour = date.hour
-day = date.day
-month = date.month
 
-closed = [[24, 12], [25, 12], [26, 12],
-	  [31, 12], [1, 1], [2, 1]]
-
-if [day, month] in closed:
-    shut = True
+# # TODO: busy_times = ...
 
 for element in blocks:
-    dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
+    if hour >= 12 and hour <=17:
+        dict[element["Label"]] = [element["Available"]+element["Offline"]/3, element["Total"]]
+    else:
+        dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
 
 
 total = parsed_data["Total"]
 available = 0
 
-if hour >= 12 and hour <=17:
-    for level in dict:
-        dict.get(level)[1] /= 3
-        available += round(dict.get(level)[0] + dict.get(level)[1])
-else:
-    available = parsed_data["Available"] + parsed_data["Offline"]
+for level in dict:
+    available += round(dict.get(level)[0])
 
 
 # Final tweet format
@@ -79,9 +74,5 @@ for name in sorted_names:
         tweet += name + ": " + str(av) + "/" + str(tot)+ " " + emoji  + "\n"
     #tweet += emoji + "  " + name + ": " + str(av) + "/" + str(tot) + "\n"
 
-if not shut:
-    tweet = tweet.rstrip()
-else:
-    d = date.strftime("%B %d)
-    tweet = "The library is closed today on %s. Happy holidays!" % d 
-print(tweet)
+
+tweet = tweet.rstrip()
