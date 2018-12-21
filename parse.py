@@ -6,8 +6,8 @@ import json
 
 ## LIBRARY IS NORMALLY BUSY ##
 
-#file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
-file = open('new_data.json', 'r')
+file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
+#file = open('new_data.json', 'r')
 
 parsed_data = json.load(file)
 blocks = parsed_data["Groups"]
@@ -21,18 +21,10 @@ hour = date.hour
 # # TODO: busy_times = ...
 
 for element in blocks:
-    if hour >= 12 and hour <=17:
-        dict[element["Label"]] = [element["Available"]+element["Offline"]/3, element["Total"]]
-    else:
-        dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
-
+    dict[element["Label"]] = [element["Available"]+element["Offline"], element["Total"]]
 
 total = parsed_data["Total"]
-available = 0
-
-for level in dict:
-    available += round(dict.get(level)[0])
-
+available = parsed_data["Available"]+parsed_data["Offline"]
 
 # Final tweet format
 # % available
@@ -74,5 +66,5 @@ for name in sorted_names:
         tweet += name + ": " + str(av) + "/" + str(tot)+ " " + emoji  + "\n"
     #tweet += emoji + "  " + name + ": " + str(av) + "/" + str(tot) + "\n"
 
-
 tweet = tweet.rstrip()
+print(tweet)
