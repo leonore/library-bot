@@ -5,8 +5,8 @@ import datetime
 import json
 from emojis import standard, valentines
 
-#file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
-file = open('new_data.json', 'r')
+file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
+#file = open('new_data.json', 'r')
 
 parsed_data = json.load(file)
 blocks = parsed_data["Groups"]
@@ -21,10 +21,9 @@ hour = date.hour
 # february
 # march till 15th
 # april from 14th till may 17th TO IMPROVE
-busy_months = [(2, 0), 3, 4, 5]
 busy = False
 
-if hour > 10 and hour < 18:
+if hour > 10 and hour < 16:
     if date.month is 2:
         busy = True
     elif date.month in [3, 5] and date.day < 17:
