@@ -1,0 +1,109 @@
+{
+  "PublicApiStationSetId": 1001,
+  "Name": "Library and reading room",
+  "ChangeSpeed": 60,
+  "Groups": [{
+    "Id": 1006,
+    "Name": "Library Level 1",
+    "Description": " ",
+    "Label": "Level 1",
+    "InUse": 6,
+    "Available": 0,
+    "Offline": 24,
+    "TurnedOn": 6,
+    "Total": 30,
+    "OrderNum": 1
+  }, {
+    "Id": 1001,
+    "Name": "Library Level 3",
+    "Description": " ",
+    "Label": "Level 3",
+    "InUse": 105,
+    "Available": 22,
+    "Offline": 55,
+    "TurnedOn": 127,
+    "Total": 182,
+    "OrderNum": 3
+  }, {
+    "Id": 1002,
+    "Name": "Library Level 4",
+    "Description": " ",
+    "Label": "Level 4",
+    "InUse": 174,
+    "Available": 12,
+    "Offline": 37,
+    "TurnedOn": 186,
+    "Total": 223,
+    "OrderNum": 5
+  }, {
+    "Id": 1003,
+    "Name": "Library Level 5",
+    "Description": " ",
+    "Label": "Level 5",
+    "InUse": 37,
+    "Available": 2,
+    "Offline": 3,
+    "TurnedOn": 39,
+    "Total": 42,
+    "OrderNum": 6
+  }, {
+    "Id": 1004,
+    "Name": "Library Level 6",
+    "Description": " ",
+    "Label": "Level 6",
+    "InUse": 58,
+    "Available": 8,
+    "Offline": 41,
+    "TurnedOn": 66,
+    "Total": 107,
+    "OrderNum": 7
+  }, {
+    "Id": 1005,
+    "Name": "Library Level 7",
+    "Description": " ",
+    "Label": "Level 7",
+    "InUse": 11,
+    "Available": 0,
+    "Offline": 3,
+    "TurnedOn": 11,
+    "Total": 14,
+    "OrderNum": 8
+  }, {
+    "Id": 1007,
+    "Name": "Library Level 8",
+    "Description": " ",
+    "Label": "Level 8",
+    "InUse": 20,
+    "Available": 1,
+    "Offline": 22,
+    "TurnedOn": 21,
+    "Total": 43,
+    "OrderNum": 9
+  }, {
+    "Id": 1008,
+    "Name": "Library Level 10",
+    "Description": " ",
+    "Label": "Level 10",
+    "InUse": 34,
+    "Available": 1,
+    "Offline": 21,
+    "TurnedOn": 35,
+    "Total": 56,
+    "OrderNum": 10
+  }, {
+    "Id": 1009,
+    "Name": "Reading Room",
+    "Description": " ",
+    "Label": "Reading room",
+    "InUse": 75,
+    "Available": 9,
+    "Offline": 18,
+    "TurnedOn": 84,
+    "Total": 102,
+    "OrderNum": 11
+  }],
+  "InUse": 520,
+  "Available": 55,
+  "Offline": 224,
+  "Total": 799
+}

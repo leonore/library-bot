@@ -1,5 +1,5 @@
 keys.py
 __pycache__/
-*.json
 *.txt
 *.pyc
+*2.*

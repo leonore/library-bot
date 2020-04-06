@@ -6,7 +6,7 @@ import json
 from emojis import standard, valentines
 
 file = open('/home/ubuntu/leonore/library-bot/new_data.json', 'r')
-#file = open('new_data.json', 'r')
+#file = open('sample_data.json', 'r')
 
 parsed_data = json.load(file)
 blocks = parsed_data["Groups"]
